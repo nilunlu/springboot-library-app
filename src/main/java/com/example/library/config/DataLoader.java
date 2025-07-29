@@ -29,6 +29,12 @@ public class DataLoader {
             User user2 = new User(null, "nil", null);
             user2 = userRepo.save(user2);
 
+            User user3 = new User(null, "mert", null);
+            user3 = userRepo.save(user3);
+
+            User user4 = new User(null, "Zeynep", null);
+            user4 = userRepo.save(user4);
+
             // Kategori
             Category cat1 = new Category(null, "Roman");
             cat1 = categoryRepo.save(cat1);
@@ -87,6 +93,23 @@ public class DataLoader {
             loan1.setLoanDate(LocalDate.now());
             loan1.setReturnDate(LocalDate.now().plusDays(14));
             loanRepository.save(loan1);
+
+            // Gecikmemiş - Zeynep alıyor
+            Loan loan2 = new Loan();
+            loan2.setUser(user4);
+            loan2.setBook(b2);
+            loan2.setLoanDate(LocalDate.now().minusDays(5));
+            loan2.setReturnDate(LocalDate.now().plusDays(9));
+            loanRepository.save(loan2);
+
+// Gecikmiş - Mehmet almış, süresi dolmuş
+            Loan loan3 = new Loan();
+            loan3.setUser(user3);
+            loan3.setBook(b3);
+            loan3.setLoanDate(LocalDate.now().minusDays(20));
+            loan3.setReturnDate(LocalDate.now().minusDays(5)); // gecikmiş
+            loanRepository.save(loan3);
+
 
             System.out.println("🔁 Test verileri eklendi.");
 
