@@ -102,7 +102,7 @@ public class DataLoader {
             loan2.setReturnDate(LocalDate.now().plusDays(9));
             loanRepository.save(loan2);
 
-// Gecikmiş - Mehmet almış, süresi dolmuş
+
             Loan loan3 = new Loan();
             loan3.setUser(user3);
             loan3.setBook(b3);
